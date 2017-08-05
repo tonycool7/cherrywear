@@ -113,7 +113,7 @@
 								$count = count($_SESSION['cart']);
 								for($i = 1; $i<$count; $i++ ){
 									echo "<div class='row'><div class='col-md-5'>
-											<img src='http://tonykul.com/cherrywear/public/images/products/{$_SESSION['cart'][$keys[$i]]['image']}'>
+											<img src='images/products/{$_SESSION['cart'][$keys[$i]]['image']}'>
 										</div>
 										<div class='col-md-7'>
 											<h3>{$_SESSION['cart'][$keys[$i]]['name']}</h3>

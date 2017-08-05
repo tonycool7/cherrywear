@@ -54,7 +54,7 @@
 			@foreach ($product as $cat)
 			<li class="product-box">
 				<a href="{{url('/')}}/product/{{$cat->id}}"><div class="product-image" style="background-image: url({{url('/')}}/images/products/{{$cat->image}})">
-					
+
 				</div></a>
 				<div class="view-product"><div class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#{{$cat->id}}" data-value="{{$cat->id}}"><span>View</span></div></div>
 				<div class="product-name">

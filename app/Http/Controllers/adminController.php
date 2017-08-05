@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\product_view;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -47,7 +48,6 @@ class adminController extends Controller
 
     public function addProduct(){
     	$product = new product;
-
         if (Input::has('name') && Input::has('descr') && request()->hasFile('image') && Input::has('category')&& Input::has('details') && Input::has('subcategory') && Input::has('newprice') && Input::has('size') && Input::has('color')){
             $product->name = Input::get('name');
             $product->description = Input::get('descr');
@@ -64,12 +64,24 @@ class adminController extends Controller
                 copy(storage_path('app/uploads/').$name, "images/products/".$name);
                 $product->image = $name;
             }
+
         }else{
             $this->data['incompleteForm'] = "Please fill all fields";
             return view("admin", $this->data);
         }
 
     	if($product->save()){
+            for($i = 1; $i <= 2; $i++){
+                $views = new product_view;
+                if(request()->file('view'.$i)->isValid()){
+                    $name = Input::file('view'.$i)->getClientOriginalName();
+                    request()->file('view'.$i)->storeAs('uploads', $name);
+                    copy(storage_path('app/uploads/').$name, "images/products/".$name);
+                    $views->product_id = $product->id;
+                    $views->image = $name;
+                    $views->save();
+                }
+            }
     		$this->data['successMsg'] = "Product Successfully added";
             $this->data['product'] = product::all();
     	}

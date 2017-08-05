@@ -89,6 +89,9 @@
 
 	@section('shop')
 	@show
+
+	@section('lookbook')
+	@show
 	
 	@section('error')
 	@show

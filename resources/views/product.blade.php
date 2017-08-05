@@ -18,28 +18,38 @@
 					<div class="carousel-inner" role="listbox">
 				      	<div class="g">
 				      	</div>
-				       	<ol class="carousel-indicators">
-						    <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
-						    <li data-target="#myCarousel2" data-slide-to="1"></li>
-						    <li data-target="#myCarousel2" data-slide-to="2"></li>
-				      	</ol>
-
-					    <div class="item active" style="background-image: url({{url('/')}}/images/products/{{$product->image}})">
-					    </div>
-					    <div class="item" style="background-image: url({{url('/')}}/images/products/{{$product->image}})">
-					    </div>
-					    <div class="item" style="background-image: url({{url('/')}}/images/products/{{$product->image}})">
-					    </div>
-				    </div>
-				     <!-- Left and right controls -->
+						<ol class="carousel-indicators">
+							@if(\App\product::where('id', $product->id)->first()->subproducts()->first() != NULL)
+								<li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+							@endif
+							@php
+								$i = 1;
+							@endphp
+							@foreach(\App\product::where('id', $product->id)->first()->subproducts()->get() as $item)
+								<li data-target="#myCarousel2" data-slide-to="{{$i}}"></li>
+								@php
+									$i++;
+								@endphp
+							@endforeach
+						</ol>
+						<div class="item active" style="background-image: url({{url('/')}}/images/products/{{$product->image}})">
+						</div>
+						@foreach(\App\product::where('id', $product->id)->first()->subproducts()->get() as $item)
+							<div class="item" style="background-image: url({{url('/')}}/images/products/{{$item->image}})">
+							</div>
+						@endforeach
+					</div>
+				<!-- Left and right controls -->
+				@if(\App\product::where('id', $product->id)->first()->subproducts()->first() != NULL)
 					<a class="left carousel-control" href="#myCarousel2" role="button" data-slide="prev">
-					  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-					  <span class="sr-only">Previous</span>
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
 					</a>
 					<a class="right carousel-control" href="#myCarousel2" role="button" data-slide="next">
-					  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-					  <span class="sr-only">Next</span>
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
 					</a>
+				@endif
 			  	</div>
 		</div>
 		<div class="col-md-6">

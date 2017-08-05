@@ -1,4 +1,4 @@
-var site = "http://tonykul.com/cherrywear/public";
+var site = "http://localhost:8000";
 
 $(function() {
     $(".sub-menu-1").hide();
@@ -356,8 +356,8 @@ $(function(){
     $('.color li').click(function(){
         var id = $(this).data('value3');
         var v_id = $(this).data('id');
-        $('#'+id+' .item').css('background-image', 'url(http://tonykul.com/cherrywear/public/images/products/'+$(this).data('value2')+')');
-        $('.'+id+' .item').css('background-image', 'url(http://tonykul.com/cherrywear/public/images/products/'+$(this).data('value2')+')');
+        $('#'+id+' .item').css('background-image', 'url(../images/products/'+$(this).data('value2')+')');
+        $('.'+id+' .item').css('background-image', 'url(../images/products/'+$(this).data('value2')+')');
         $("."+id+" .p-image").text($(this).data('value2'));
         $('#'+id).find('.add-to-cart').data('id', v_id);
         $('.'+id).find('.add-to-cart2').data('value', v_id);

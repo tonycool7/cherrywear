@@ -18,7 +18,7 @@
 								<span class="delete" data-value="'.$keys[$i].'">удалить</span>
 								<div class="row">
 								<div class="my-md-4">
-								<img src= "http://tonykul.com/cherrywear/public/images/products/'.$_SESSION['cart'][$keys[$i]]['image'].'">
+								<img src= "images/products/'.$_SESSION['cart'][$keys[$i]]['image'].'">
 								</div>
 								<div class="my-md-8">
 									<h2>'.$_SESSION['cart'][$keys[$i]]['name'].'</h2>

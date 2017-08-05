@@ -134,6 +134,19 @@
                                     <input type="file" name="image"/>
                                 </div>
                             </div>
+
+                            <h3>Upload different views for porduct (maximu of 2)</h3>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label>Upload Image</label>
+                                    <input type="file" name="view1"/>
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Upload Image</label>
+                                    <input type="file" name="view2"/>
+                                </div>
+                            </div>
+
                              <input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />
                             <input type="submit" class="btn btn-primary" value="Add Product"/>
                         </form>
@@ -241,4 +254,5 @@
         </div>
     </div>
     </div>
+</div>
 @endsection

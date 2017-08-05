@@ -11,27 +11,37 @@
 				      	<div class="g">
 				      	</div>
 				       	<ol class="carousel-indicators">
-						    <li data-target="#myCarousel{{$cat->id}}" data-slide-to="0" class="active"></li>
-						    <li data-target="#myCarousel{{$cat->id}}" data-slide-to="1"></li>
-						    <li data-target="#myCarousel{{$cat->id}}" data-slide-to="2"></li>
+							@if(\App\product::where('id', $cat->id)->first()->subproducts()->first() != NULL)
+							<li data-target="#myCarousel{{$cat->id}}" data-slide-to="0" class="active"></li>
+							@endif
+							@php
+								$i = 1;
+							@endphp
+						    @foreach(\App\product::where('id', $cat->id)->first()->subproducts()->get() as $item)
+								<li data-target="#myCarousel{{$cat->id}}" data-slide-to="{{$i}}"></li>
+								@php
+									$i++;
+								@endphp
+							@endforeach
 				      	</ol>
-
-					    <div class="item active" style="background-image: url({{url('/')}}/images/products/{{$cat->image}})">
-					    </div>
-					    <div class="item" style="background-image: url({{url('/')}}/images/products/{{$cat->image}})">
-					    </div>
-					    <div class="item" style="background-image: url({{url('/')}}/images/products/{{$cat->image}})">
-					    </div>
+						<div class="item active" style="background-image: url({{url('/')}}/images/products/{{$cat->image}})">
+						</div>
+						@foreach(\App\product::where('id', $cat->id)->first()->subproducts()->get() as $item)
+							<div class="item" style="background-image: url({{url('/')}}/images/products/{{$item->image}})">
+							</div>
+						@endforeach
 				    </div>
 				     <!-- Left and right controls -->
-					<a class="left carousel-control" href="#myCarousel{{$cat->id}}" role="button" data-slide="prev">
-					  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-					  <span class="sr-only">Previous</span>
-					</a>
-					<a class="right carousel-control" href="#myCarousel{{$cat->id}}" role="button" data-slide="next">
-					  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-					  <span class="sr-only">Next</span>
-					</a>
+					@if(\App\product::where('id', $cat->id)->first()->subproducts()->first() != NULL)
+						<a class="left carousel-control" href="#myCarousel{{$cat->id}}" role="button" data-slide="prev">
+						  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						  <span class="sr-only">Previous</span>
+						</a>
+						<a class="right carousel-control" href="#myCarousel{{$cat->id}}" role="button" data-slide="next">
+						  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						  <span class="sr-only">Next</span>
+						</a>
+					@endif
 			  	</div>
 		  </div>
 	   		<!--  -->

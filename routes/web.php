@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Input;
+use App\customer;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,7 +66,18 @@ Route::get('/orders','indexController@orders');
 Route::get('/complete', 'indexController@orderSuccess');
 
 Route::get('/log', function(){
-	return view('/logic/login');
+    if(!empty(Input::get('mail')) && !empty(Input::get('pword'))){
+        $password = Input::get('pword');
+        $email = Input::get('mail');
+        $user = customer::where("email", $email)->first();
+        if (Illuminate\Support\Facades\Hash::check($password, $user->password))
+        {
+            session(['login' => 'true','user' => $user->name, 'email' => $user->email, 'phone' => $user->telephone, 'address' => $user->address]);
+            print "true";
+        }
+        }else{
+            print "false";
+        }
 });
 
 Route::get('/ordered', function(){
@@ -73,5 +86,11 @@ Route::get('/ordered', function(){
 
 Route::get('/subscribe', function(){
 	return view('/logic/subscribe');
+});
+
+Route::get('/view', function (){
+     dd(\App\product::where('id', 9)->first()->subproducts);
+
+     return "das";
 });
 
