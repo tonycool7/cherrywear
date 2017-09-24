@@ -12,7 +12,7 @@
                     <div title="edit product" class="btn btn-warning" id="edit-p">EDIT PRODUCT</div>
                     <div title="add color" class="btn btn-color" id="color-p">ADD COLOR</div>
                     <div title="edit slides" class="btn btn-slides" id="edit-s">EDIT SLIDES</div>
-                    <div title="add to gallery" class="btn btn-success" id="gallery-p">ADD TO GALLERY</div>
+                    <div title="add to gallery" class="btn btn-success" id="lookbook-p">ADD TO LOOKBOOK</div>
                     <div title="delete products" class="btn btn-danger" id="delete-p">DELETE PRODUCTS</div>
                 </div>
             </div>
@@ -25,7 +25,16 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Do something!!</div>
                 @if($deleteSuccess)
-                <div class="alert alert-success">{{$deleteSuccess}}</div>
+                    <div class="alert alert-success">{{$deleteSuccess}}</div>
+                @endif
+                @if($lookbooksuc)
+                    <div class="alert alert-success">{{$lookbooksuc}}</div>
+                @endif
+                @if($lookbookdelete)
+                    <div class="alert alert-success">{{$lookbookdelete}}</div>
+                @endif
+                @if($lookbookerror)
+                    <div class="alert alert-success">{{$lookbookerror}}</div>
                 @endif
                 @if($successMsg)
                 <div class="alert alert-success">{{$successMsg}}</div>
@@ -192,6 +201,40 @@
     </div>
     </div>
 
+    <div class="row">
+        <div id="edit">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h3>Edit product</h3></div>
+                    <div class="panel-body">
+                        <table class="table table-hovered">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>image</th>
+                                <th>category</th>
+                                <th>Color</th>
+                                <th>Size</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($product as $item)
+                                <tr>
+                                    <td>{{$item->name}}</td>
+                                    <td><img class="item-img" src="{{url('/')}}/images/products/{{$item->image}}"></td>
+                                    <td>{{$item->category}}</td>
+                                    <td>{{$item->color}}</td>
+                                    <td>{{$item->size}}</td>
+                                    <td><a class="btn btn-success" href="{{url('/')}}/edit/{{$item->id}}">Edit</a></td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="row">
     <div id="color">
@@ -253,6 +296,50 @@
             </div>
         </div>
     </div>
+    </div>
+
+
+    <div class="row">
+        <div id="lookbook">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h3>Add image to lookbook</h3></div>
+                    <div class="panel-body">
+                        <form role="form" class="form-horizontal" method="POST" action="{{ url('/admin/add_to_lookbook')}}" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <label>Image name:</label>
+                                    <input class="form-control" name="imgname" placeholder="image name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <label>Upload Image</label>
+                                    <input type="file" name="lookbookimage"/>
+                                </div>
+                            </div>
+                            <input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />
+                            <input type="submit" class="btn btn-primary" value="Add To Lookbook"/>
+                        </form>
+
+                        <table class="table table-hovered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Image</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($lookbook as $item)
+                                    <tr><td>{{$item->name}}</td><td><div class="look-img" style="background-image: url('/images/lookbook/{{$item->image}}')"></div></td><td><a class="btn btn-danger" href="{{url('/')}}/deletelookbookitem/{{$item->id}}">Delete</a></td></tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

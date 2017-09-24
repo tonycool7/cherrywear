@@ -33,6 +33,8 @@ Route::post('/admin/addSlide', 'adminController@addSlide');
 
 Route::post('/admin/addColor', 'adminController@addColor');
 
+Route::post('/admin/add_to_lookbook', 'adminController@addToLookbook');
+
 Route::get('/admin/delete/{id}', 'adminController@deleteProduct');
 
 Route::get('/cart', 'cartController@index');
@@ -94,3 +96,27 @@ Route::get('/view', function (){
      return "das";
 });
 
+Route::get('/lookbook', function(){
+    $category = \App\category::all();
+    $lookbook = \App\lookbook::all();
+    return view('lookbook', ['category' => $category, 'lookbook' => $lookbook]);
+});
+
+Route::get('/deletelookbookitem/{id}', 'adminController@deletelookbookItem');
+
+Route::get('/about', function (){
+    $category = \App\category::all();
+    return view('about', compact('category'));
+});
+
+
+Route::get('/edit/{id}', 'adminController@editItem');
+
+Route::post('/save_edit/{id}', 'adminController@saveEdit');
+
+
+Route::get('/admin_reg', 'Auth\\RegisterController@register');
+
+Route::get('/admin_reg_view', function (){
+    return view('reg');
+});

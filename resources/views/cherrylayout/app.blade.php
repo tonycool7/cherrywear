@@ -6,12 +6,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta http-equiv="Content-Language" content="ru">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/less" href="{{url('/')}}/css/cherrywear.less">
-	<link rel="stylesheet" type="text/css" href="{{url('/')}}/css/owl.carousel.min.css">
-	<link rel="stylesheet" type="text/css" href="{{url('/')}}/css/owl.theme.default.min.css">
-	<link rel="stylesheet" type="text/css" href="{{url('/')}}/css/owl.theme.green.css">
-	<link rel="stylesheet" type="text/css" href="{{url('/')}}/css/icons.css">
-	<link rel="icon" type="image/png" href="{{url('/')}}/images/logo.png">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/less" href="/css/cherrywear.less">
+	<link rel="stylesheet" type="text/css" href="/css/owl.carousel.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/owl.theme.default.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/owl.theme.green.min.css">
+	<link rel="icon" type="image/png" href="/images/logo2.png">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<!-- Yandex.Metrika counter -->
@@ -92,7 +92,10 @@
 
 	@section('lookbook')
 	@show
-	
+
+	@section('about')
+	@show
+
 	@section('error')
 	@show
 

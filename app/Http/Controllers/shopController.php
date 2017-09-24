@@ -17,9 +17,9 @@ class shopController extends Controller
 	public $allowedSubCategories = array();
 
 	public function __construct(){
-		$this->allowedCategories = array("men", "women", "kids", "highlights");
+		$this->allowedCategories = array("Мужчина" => "men", "Женшина" => "women", "Дети" => "kids", "Новинки" => "highlights");
 		$categoryObj = category::all();
-        	$color = DB::table('product')->select('color')->groupBy('color')->get();
+        $color = DB::table('product')->select('color')->groupBy('color')->get();
 		foreach ($categoryObj as $value) {
 			array_push($this->allowedSubCategories, $value->name);
 		}

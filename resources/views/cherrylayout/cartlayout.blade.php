@@ -1,5 +1,5 @@
 <div class="container">
-	<h2 style="text-align: center" class="bold">КОРЗИНА</h2>
+	<h2 style="text-align: center" class="">КОРЗИНА</h2>
 </div>
 <div class="container">
 	<hr>
@@ -30,13 +30,12 @@
 											<h5>Размер:</h5>
 										</div>
 										<div class="col-md-9" style="padding-top: 4px;">
-											<input type="text" class="qty'.$keys[$i].'" value="'.$_SESSION['cart'][$keys[$i]]['quantity'].'">
-											
+											<h5>'.$_SESSION['cart'][$keys[$i]]['quantity'].'</h5>
 											<h5>'.$_SESSION['cart'][$keys[$i]]['color'].'</h5>
 											<h5>'.$_SESSION['cart'][$keys[$i]]['size'].'</h5>
 										</div>
 									</div>
-									<div class="bold" style="margin-top: 35px;">TOTAL: <span class="bold price'.$keys[$i].'">'.$_SESSION['cart'][$keys[$i]]['price'] * $_SESSION['cart'][$keys[$i]]['quantity'].'</span> ₽</div>
+									<div class="bold" style="margin-top: 35px;">ИТОГО : <span class="bold price'.$keys[$i].'">'.$_SESSION['cart'][$keys[$i]]['price'] * $_SESSION['cart'][$keys[$i]]['quantity'].'</span> ₽</div>
 								</div>
 								</div>
 							</div>';
@@ -47,17 +46,17 @@
 				}
 			?>
 			<div class="cart-empty">КОРЗИНА ПУСТА</div>
-			<a class="btn btn-default go-to-shop" href="{{url('/')}}/shop">ВЕРНУТЬСЯ В МАГАЗИН</a><br>
+			<a class="btn btn-default go-to-shop" href="/shop">ВЕРНУТЬСЯ В МАГАЗИН</a><br>
 		</div>
 		<div class="col-md-4">
 			<div class="cart-conclusion">
-				<h5 class="bold">ОБЩАЯ СТОИМОСТЬ ТОВАРОВ В КОРЗИНЕ</h5>
+				<h5 class="">ОБЩАЯ СТОИМОСТЬ ТОВАРОВ В КОРЗИНЕ</h5>
 				<div class="cart-conclusion-content">
 					<h6>СТОИМОСТЬ ЗАКАЗА: <span class="pull-right"><span class="amt"><?php if(isset($_SESSION['total'])) echo $_SESSION['total']; else echo 0;?></span> ₽</span></h6>
 					<h6>ДОСТАВКА: <span class="pull-right">300 ₽</span></h6>
 					<hr style="border:1px solid black ! important">
 					<h6>ИТОГО: <span class="pull-right"><span class="total-amt"><?php if(isset($_SESSION['total'])) echo $_SESSION['total'] + 300;?></span> ₽</span></h6>
-					<div><a href="{{url('/')}}/checkout" class="checkout bold">CHECKOUT</a></div>
+					<div><a href="/checkout" class="checkout bold">ОФОРМИТЬ ЗАКАЗ</a></div>
 					<div>
 						<p>Цены и стоимость доставки являются неподтвержденными до перехода к разделу оформления заказа.</p>
 						<p>14-дневный период возврата товара, комиссия за возврат и возврат стоимости за неотправленный товар. Прочитать о  Прочитать о возврате и возмещении стоимости товара.</p>

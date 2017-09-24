@@ -27,6 +27,18 @@ $("#delete-p").click(function(){
 	$("#color").hide("middle");
 	$("#slides").hide("middle");
 	$("#delete").show("middle");
+    $("#lookbook").hide("middle");
+});
+
+
+$("#lookbook-p").click(function(){
+    $("#gallery").hide("middle");
+    $("#add").hide("middle");
+    $("#edit").hide("middle");
+    $("#color").hide("middle");
+    $("#slides").hide("middle");
+    $("#delete").hide("middle");
+    $("#lookbook").show("middle");
 });
 
 $("#add-p").click(function(){
@@ -36,10 +48,12 @@ $("#add-p").click(function(){
 	$("#color").hide("middle");
 	$("#slides").hide("middle");
 	$("#delete").hide("middle");
+    $("#lookbook").hide("middle");
 });
 
 $("#edit-p").click(function(){
-	$("#add").hide("middle");
+    $("#lookbook").hide("middle");
+    $("#add").hide("middle");
 	$("#edit").show("middle");
 	$("#color").hide("middle");
 	$("#gallery").hide("middle");
@@ -48,7 +62,8 @@ $("#edit-p").click(function(){
 });
 
 $("#edit-s").click(function(){
-	$("#add").hide("middle");
+    $("#lookbook").hide("middle");
+    $("#add").hide("middle");
 	$("#edit").hide("middle");
 	$("#color").hide("middle");
 	$("#gallery").hide("middle");
@@ -57,7 +72,8 @@ $("#edit-s").click(function(){
 });
 
 $("#color-p").click(function(){
-	$("#add").hide("middle");
+    $("#lookbook").hide("middle");
+    $("#add").hide("middle");
 	$("#edit").hide("middle");
 	$("#color").show("middle");
 	$("#delete").hide("middle");
@@ -66,7 +82,8 @@ $("#color-p").click(function(){
 });
 
 $("#gallery-p").click(function(){
-	$("#add").hide("middle");
+    $("#lookbook").hide("middle");
+    $("#add").hide("middle");
 	$("#edit").hide("middle");
 	$("#color").hide("middle");
 	$("#delete").hide("middle");

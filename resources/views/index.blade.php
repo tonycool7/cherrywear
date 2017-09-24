@@ -1,6 +1,6 @@
 @extends('cherrylayout.app')
 
-@section('title', 'NORD ELK')
+@section('title', config('app.name'))
 
 @section('navigation')
 	@include('cherrylayout.navigator')
@@ -24,4 +24,17 @@
 
 @section('footer')
 	@include('cherrylayout.footer2')
+
+    <script>
+        $(window).scroll(function(){
+            var scroll = $(this).scrollTop();
+            if(scroll > $("#periscope").offset().top){
+                $("#know-more ul li").each(function(i){
+                    setTimeout(function(){
+                        $("#know-more ul li").eq(i).addClass("animate");
+                    }, 400 * (i + 1));
+                });
+            }
+        });
+    </script>
 @endsection

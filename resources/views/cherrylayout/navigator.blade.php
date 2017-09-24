@@ -1,9 +1,9 @@
 <nav class="container-fluid">
 <div class="container-fluid">
 	<div class="row header">
-		<h1 class="text-center"><a title="NORD ELK" id="banner" href="{{url('/')}}"><div>NORD&ensp;ELK</div><div><img src="{{url('/')}}/images/logo.png"></div></a></h1><br>
+		<h1 class="text-center"><a title="{{config('app.name')}}" id="banner" href="/"><img src="/images/logo2.png"><div></div></a></h1><br>
 		<div id="search-account">
-			<div class="refresh">@if (session('login') != 'true')<span class="login">Войти</span> / <span class="register">зарегистрироваться</span>&nbsp;<span class="glyphicon glyphicon-user"></span>@else <span class="account"><a href="{{url('/')}}/account">welcome {{session('user')}} </a></span><span class="logout">Выйти</span> @endif</div>
+			<div class="refresh">@if (session('login') != 'true')<span class="login">Войти</span> / <span class="register">Зарегистрироваться</span>&nbsp;<span class="glyphicon glyphicon-user"></span>@else <span class="account"><a href="/account">welcome {{session('user')}} </a></span><span class="logout">Выйти</span> @endif</div>
 			<div class="login-container">
 				<form role="form" id="login-form" method="POST" class="form-horizontal"> 
 					<div class="form-group">
@@ -22,7 +22,7 @@
 				</form>
 			</div>
 			<div class="register-container">
-				 <form class="form-horizontal" role="form" method="POST" action="{{url('/')}}/reg">
+				 <form class="form-horizontal" role="form" method="POST" action="/reg">
                         <div class="form-group">
 							<label>Имя: </label>
 							<input type="text" name="name2" class="form-control" placeholder="Имя" required>
@@ -64,41 +64,41 @@
 <div class="container-fluid">
 	<div class="row main-menu">
 		<ul>
-			<li><a href="{{url('/')}}">HOME</a></li>
-			<li id="shop"><a href="{{url('/')}}/shop">МАГАЗИН<span class="glyphicon glyphicon-chevron-down"></span></a></li>
-			<li id="brand"><a href="#">О NORDELK</a></li>
-			<li><a href="#">LOOKBOOK</a></li>
+			<li><a href="/">HOME</a></li>
+			<li id="shop"><a href="/shop">МАГАЗИН<span class="glyphicon glyphicon-chevron-down"></span></a></li>
+			<li id="brand"><a href="/about">О {{config('app.name')}}</a></li>
+			<li><a href="/lookbook">LOOKBOOK</a></li>
 		</ul>
-		<span id="shopping-cart" class="pull-right"><a href="{{url('/')}}/cart"> Корзина <span class="count"><?php session_start(); if(isset($_SESSION['count'])) echo $_SESSION['count']; else echo 0;?></span></a> <span class="glyphicon glyphicon-shopping-cart"></span></span>
+		<span id="shopping-cart" class="pull-right"><a href="/cart"> Корзина <span class="count"><?php session_start(); if(isset($_SESSION['count'])) echo $_SESSION['count']; else echo 0;?></span></a> <span class="glyphicon glyphicon-shopping-cart"></span></span>
 	</div>
 	<div class="row sub-menu-1" id="shop">
 		<div class="col-md-3">
-			<h5><a title="highlights" href="{{url('/')}}/shop/highlights">Новинки</h5>
+			<h5><a title="highlights" href="/shop/highlights">Новинки</h5>
 			<ul class="shop-menu">
-				<li><a title="highlights" href="{{url('/')}}/shop/highlights">новое поступление</a></li>
+				<li><a title="highlights" href="/shop/highlights">новое поступление</a></li>
 			</ul>
 		</div>
 		<div class="col-md-3">
-			<h5><a title="men" href="{{url('/')}}/shop/men">МУЖЧИНЫ</a></h5>
+			<h5><a title="men" href="/shop/men">МУЖЧИНЫ</a></h5>
 			<ul class="shop-menu">
 			@foreach ($category as $categoryItems)
-				<li><a title="{{$categoryItems->name}}" href="{{url('/')}}/shop/men/{{$categoryItems->name}}">{{$categoryItems->rusname}}</a></li>
+				<li><a title="{{$categoryItems->name}}" href="/shop/men/{{$categoryItems->name}}">{{$categoryItems->rusname}}</a></li>
 			@endforeach
 			</ul>
 		</div>
 		<div class="col-md-3">
-			<h5><a title="women" href="{{url('/')}}/shop/women">ЖЕНЩИНЫ</a></h5>
+			<h5><a title="women" href="/shop/women">ЖЕНЩИНЫ</a></h5>
 			<ul class="shop-menu">
 			@foreach ($category as $categoryItems)
-				<li><a title="{{$categoryItems->name}}" href="{{url('/')}}/shop/women/{{$categoryItems->name}}">{{$categoryItems->rusname}}</a></li>
+				<li><a title="{{$categoryItems->name}}" href="/shop/women/{{$categoryItems->name}}">{{$categoryItems->rusname}}</a></li>
 			@endforeach
 			</ul>
 		</div>
 		<div class="col-md-3">
-			<h5><a title="kids" href="{{url('/')}}/shop/kids">ДЕТИ</a></h5>
+			<h5><a title="kids" href="/shop/kids">ДЕТИ</a></h5>
 			<ul class="shop-menu">
 			@foreach ($category as $categoryItems)
-				<li><a title="{{$categoryItems->name}}" href="{{url('/')}}/shop/kids/{{$categoryItems->name}}">{{$categoryItems->rusname}}</a></li>
+				<li><a title="{{$categoryItems->name}}" href="/shop/kids/{{$categoryItems->name}}">{{$categoryItems->rusname}}</a></li>
 			@endforeach
 			</ul>
 		</div>

@@ -24,11 +24,17 @@
 								@endphp
 							@endforeach
 				      	</ol>
-						<div class="item active" style="background-image: url({{url('/')}}/images/products/{{$cat->image}})">
+						<div class="item item0 active" style="background-image: url(/images/products/{{$cat->image}})">
 						</div>
+						@php
+							$j = 1;
+						@endphp
 						@foreach(\App\product::where('id', $cat->id)->first()->subproducts()->get() as $item)
-							<div class="item" style="background-image: url({{url('/')}}/images/products/{{$item->image}})">
+							<div class="item item{{$j}}" style="background-image: url(/images/products/{{$item->image}})">
 							</div>
+							@php
+								$j++;
+							@endphp
 						@endforeach
 				    </div>
 				     <!-- Left and right controls -->

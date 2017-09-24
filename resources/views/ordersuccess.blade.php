@@ -1,6 +1,6 @@
 @extends ('cherrylayout.app')
 
-@section('title', 'ЗАКАЗЫ | NORD ELK')
+@section('title', 'ЗАКАЗЫ | '.config('app.name'))
 
 @section ('navigation')
 	@include('cherrylayout.navigator')

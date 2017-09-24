@@ -1,5 +1,5 @@
 <div class="container">
-	<h2 style="text-align: center" class="bold">ОФОРМЛЕНИЕ ЗАКАЗА</h2>
+	<h2 style="text-align: center" class="">ОФОРМЛЕНИЕ ЗАКАЗА</h2>
 </div>
 <div class="container">
 	<hr>
@@ -9,7 +9,7 @@
 	<div class="row">
 		<div class="col-md-8">
 			<div class="checkout-conclusion logreg">
-				<h5 class="bold">УЧЕТНАЯ ЗАПИСЬ</h5>
+				<h5 class="">УЧЕТНАЯ ЗАПИСЬ</h5>
 				@if (session('login') != 'true')
 				<div class="checkout-conclusion-content">
 					<div class="row">
@@ -18,22 +18,22 @@
 								<h4 class="bold">Returning customer</h4>
 								<form role="form" class="form-horizontal" method="POST" id="login-form2"> 
 									<div class="form-group">
-										<label>Email</label>
+										<label>ЭЛ. ПОЧТА</label>
 										<input type="email" name="email" class="form-control l2-email" placeholder="E-mail">
 									</div>
 									<div class="form-group">
-										<label>Password</label>
+										<label>ПАРОЛЬ</label>
 										<input type="password" name="password" class="form-control l2-password" placeholder="**********">
 									</div>
-									<input type="submit" value="Login" style="margin-left: -15px" class="btn btn-login">
-									<div style="margin-left: -15px; margin-top: 5px"><a style="color: black" href="#">Forgot login details?</a></div>
+									<input type="submit" value="ВОЙТИ" style="margin-left: -15px" class="btn btn-login">
+									<div style="margin-left: -15px; margin-top: 5px"><a style="color: black" href="#">Забыли пароль?</a></div>
                    					<input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />
 									
 								</form>
 							</div>
 							<div class="checkreg">
 								<h4 class="bold">УКАЖИТЕ ВАШИ ДАННЫЕ</h4>
-								<form role="form" class="form-horizontal" method="POST" action="{{url('/')}}/reg"> 
+								<form role="form" class="form-horizontal" method="POST" action="/reg"> 
 									<div class="form-group">
 										<label>Имя</label>
 										<input type="text" name="name2" class="form-control" placeholder="Name">
@@ -68,11 +68,11 @@
 							</div>
 						</div>
 						<div class="col-md-6">
-							<h4 class="bold">НОВЫЙ ПОКУПАТЕЛЬ</h4>
-							<p>Создайте новую учетную запись, чтобы упростить процесс совершения покупок.</p>
-							<div class="btn btn-register check-reg">REGISTER</div>
+							<h4 class="bold">Я здесь впервые</h4>
+							<p>Создайте новую учетную запись для более быстрого оформления заказа и получения последних новостей о тенденциях и преложений по эл. почте.</p>
+							<br/><div class="btn btn-register check-reg">СОЗДАТЬ НОВУЮ УЧЕТНУЮ ЗАПИСЬ</div>
 							<h4 class="bold">Customer</h4>
-							<div class="btn btn-register check-log">LOGIN</div>
+							<div class="btn btn-register check-log">ВОЙТИ</div>
 						</div>
 					</div>
 				</div>
@@ -87,7 +87,7 @@
 					<h6>{{session('phone')}}</h6>
 					<h4>Адрес доставки</h4>
 					@if (session('address') == '')
-					<form method="POST" action="{{url('/')}}/address">
+					<form method="POST" action="/address">
 						<input type="text" name="address" placeholder="address">
 						<input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />		
 						<input type="submit" value="submit" class="btn btn-black">
@@ -97,14 +97,14 @@
 					@endif
 					<iframe frameborder="0" allowtransparency="true" scrolling="no" src="https://money.yandex.ru/quickpay/shop-widget?account=410014717837422&quickpay=shop&payment-type-choice=on&mobile-payment-type-choice=on&writer=seller&targets=%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7&default-sum=<?php if(isset($_SESSION['total'])) echo $_SESSION['total'] + 300;?>&button-text=02&successURL=google.com" width="450" height="198"></iframe>
 					<br>
-					<a class="btn btn-black" href="{{url('/')}}/ordered">доставка по оплате</a>
+					<a class="btn btn-black" href="/ordered">доставка по оплате</a>
 				</div>
 				@endif
 			</div>
 		</div>
 		<div class="col-md-4">
 			<div class="cart-conclusion">
-				<h5 class="bold">ВАШ ЗАКАЗ</h5>
+				<h5 class="">ВАШ ЗАКАЗ</h5>
 				<div class="checkout-conclusion-content">
 					
 						<?php
@@ -132,7 +132,7 @@
 					<hr style="border:1px solid black ! important">
 					<h6>ИТОГО: <span class="pull-right"><span class="total-amt"><?php if(isset($_SESSION['total'])) echo $_SESSION['total'] + 300;?></span> ₽</span></h6>
 					<div>
-						<p>14-дневный период возврата товара, комиссия за возврат и возврат стоимости за неотправленный товар. Прочитать о  Прочитать о возврате и возмещении стоимости товара.</p>
+						{{--<p>14-дневный период возврата товара, комиссия за возврат и возврат стоимости за неотправленный товар. Прочитать о  Прочитать о возврате и возмещении стоимости товара.</p>--}}
 					</div>
 				<!-- </div> -->
 				</div>

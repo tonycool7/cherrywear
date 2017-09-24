@@ -1,4 +1,3 @@
-var site = "http://localhost:8000";
 
 $(function() {
     $(".sub-menu-1").hide();
@@ -63,17 +62,6 @@ $(".color-filter-icon").click(function(){
     }
 });
 
-$(window).scroll(function(){
-	var scroll = $(this).scrollTop();
-	if(scroll > $("#periscope").offset().top){
-		 $("#know-more ul li").each(function(i){
-			setTimeout(function(){
-				 $("#know-more ul li").eq(i).addClass("animate");
-			}, 400 * (i + 1));
-		});
-	}
-});
-
 $(".login, .log").click(function(e){
     e.preventDefault();
     if(!$(".login-container").is(":visible")){
@@ -133,8 +121,8 @@ $(".add-to-cart").on('click', function(){
     }else{
         $.ajax({
             type: 'get',
-            url: site+'/addtocart',
-            data: 'id='+v_id+'&color='+$(".color li.activeColor").data('value')+'&size='+$(".sizes li.activeSize").data('value'),
+            url: '/addtocart',
+            data: {'id':v_id,'color':$(".color li.activeColor").data('value').replace(/\s+/, ""),'size':$(".sizes li.activeSize").data('value')},
             success:
             function(){
                 $('.addedtocart').hide().slideDown().delay(1200).slideUp();
@@ -147,7 +135,7 @@ $(".add-to-cart").on('click', function(){
         $(".added-price").html(price+"₽");
         $(".added-color").html("color: "+color);
         $(".added-size").html("size: "+size);
-        $(".added-img").attr('src', site+'/images/products/'+image);
+        $(".added-img").attr('src', '/images/products/'+image);
     }
    
 });
@@ -170,20 +158,22 @@ $(".add-to-cart2").click(function(){
     }else{
         $.ajax({
             type: 'get',
-            url: site+'/addtocart',
-            data: 'id='+$(".sizes li.activeSize").data('id')+'&color='+color+'&size='+size,
-            success:
-            function(){
+            url: '/addtocart',
+            data: {'id':$(".sizes li.activeSize").data('id'), 'color':color.replace(/\s+/, ""), 'size':size},
+            success: function(){
                 $('.addedtocart').hide().slideDown().delay(1200).slideUp();
                 count++;
                 $(".count").text(count);
+            },
+            error: function () {
+                alert('error');
             }
         });
         $(".added-name").html(name);
         $(".added-price").html(price);
         $(".added-color").html("color: "+color);
         $(".added-size").html("size: "+size);
-        $(".added-img").attr('src', site+'/images/products/'+image);
+        $(".added-img").attr('src', '/images/products/'+image);
     }
 });
 
@@ -192,7 +182,7 @@ $(".delete").click(function(){
     var count = parseInt($(".count").text());
     $.ajax({
         type: 'get',
-        url: site+'/deletefromcart',
+        url: '/deletefromcart',
         data: ({del: id}),
         success:
         function(){
@@ -267,7 +257,7 @@ $(".check-log").click(function(){
 
 $(".logout").click(function(){
     $.ajax({
-        url: site+"/logout",
+        url: "/logout",
         success: function(){
             window.location.reload();
         }
@@ -286,7 +276,7 @@ $("#subscr").click(function(){
         $("#subscribe").css("border", "none");
         $.ajax({
             data: ({submail: $("#subscribe").val()}),
-            url: site+"/subscribe",
+            url: "/subscribe",
             success: function(){
                 $("#subscribe").hide();
                 $(".subscription_success").text("Subscription Successful");
@@ -302,7 +292,7 @@ $("#login-form").submit(function(e){
 
     $.ajax({
         type: 'get',
-        url: site+"/log",
+        url: "/log",
         data: "mail="+email+"&pword="+password,
         success: function(data){
             if(data == "true"){
@@ -321,7 +311,7 @@ $("#login-form2").submit(function(e){
 
     $.ajax({
         type: 'get',
-        url: site+"/log",
+        url: "/log",
         data: "mail="+email+"&pword="+password,
         success: function(data){
             if(data == "true"){
@@ -340,7 +330,7 @@ $("#login-form3").submit(function(e){
 
     $.ajax({
         type: 'get',
-        url: site+"/log",
+        url: "/log",
         data: "mail="+email+"&pword="+password,
         success: function(data){
             if(data == "true"){
@@ -356,8 +346,15 @@ $(function(){
     $('.color li').click(function(){
         var id = $(this).data('value3');
         var v_id = $(this).data('id');
-        $('#'+id+' .item').css('background-image', 'url(../images/products/'+$(this).data('value2')+')');
-        $('.'+id+' .item').css('background-image', 'url(../images/products/'+$(this).data('value2')+')');
+        var imagesArray = new Array();
+        var images = $(this).data('value2');
+        imagesArray = images.split(',');
+        var j;
+        for(j=0; j < imagesArray.length - 1; j++) {
+            $('#'+id+' .item'+j).css('background-image', 'url(../images/products/'+imagesArray[j]+')');
+            $('.'+id+' .item'+j).css('background-image', 'url(../images/products/'+imagesArray[j]+')');
+        }
+        // $('.'+id+' .item').css('background-image', 'url(../images/products/'+$(this).data('value2')+')');
         $("."+id+" .p-image").text($(this).data('value2'));
         $('#'+id).find('.add-to-cart').data('id', v_id);
         $('.'+id).find('.add-to-cart2').data('value', v_id);

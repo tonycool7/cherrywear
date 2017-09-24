@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <img id="nord" src="{{url('/')}}/images/homeicon.png">
+  {{--<img id="nord" src="/images/homeicon.png">--}}
   <div id="myCarousel1" class="carousel slide" data-ride="carousel">
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
@@ -19,10 +19,10 @@
 
       @foreach ($slides as $item)
       @if ($item->image == $firstslide->image)
-      <div class="item active" style="background-image: url('{{url('/')}}/images/slides/{{$item->image}}')">
+      <div class="item active" style="background-image: url('/images/slides/{{$item->image}}')">
       </div>
       @else
-      <div class="item" style="background-image: url('{{url('/')}}/images/slides/{{$item->image}}')">
+      <div class="item" style="background-image: url('/images/slides/{{$item->image}}')">
       </div>
       @endif
       @endforeach

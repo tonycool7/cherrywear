@@ -237,6 +237,13 @@ nav{
 	width: 100%;
 	background-color: black;
 	color: white;
+	&:hover{
+		background-color: #6c9;
+		border-color: #6c9 ! important;
+		transition: background-color 500ms ease, color 500ms ease, border-color 500ms ease;
+		text-decoration: none;
+		color: white ! important;
+	}
 }
 
 .checkout{
@@ -249,12 +256,13 @@ nav{
 	text-align: center;
 	text-decoration: none;
 	color: white;
-}
-
-.checkout:hover{
-	outline: 2px solid grey;
-	text-decoration: none;
-	color: white;
+	&:hover{
+		background-color: #6c9;
+		border-color: #6c9;
+		transition: background-color 500ms ease, color 500ms ease, border-color 500ms ease;
+		text-decoration: none;
+		color: white;
+	}
 }
 
 .colorChoicep, .sizeChoicep{
@@ -277,15 +285,16 @@ nav{
 	font-weight: bold;
 }
 
-.btn-login:hover{
-	color: white ! important;
-}
-
 .btn-register{
 	border: 2px solid black ! important;
 	width: 100%;
 	background-color: white;
 	color: black;
+	&:hover{
+		color: #6c9 ! important;
+		border-color: #6c9 ! important;
+		transition: color 500ms ease, color 500ms ease, border-color 500ms ease;
+	}
 }
 
 .main-menu li a:hover{
@@ -342,7 +351,7 @@ nav{
 }
 
 #periscope{
-	background-image: url(../images/products/t-shirtg1.jpeg);
+	background-image: url(../images/center.jpg);
 	background-size: auto 100vh;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -479,7 +488,7 @@ nav{
 		margin-top: 60px;
 		margin-left: 94px;	
 		font-size: 14px;
-		font-weight: 600;
+		font-weight: 400;
 		color: black;
 		background-color: rgb(255,255,255,0.6);
 		opacity: .9;
@@ -530,6 +539,7 @@ nav{
 			letter-spacing: 2px;
 			line-height: 20px;
 			text-decoration: none;
+			text-transform: capitalize;
 			color: @font-color;
 			font-size: @submenu-fontsize;
 			font-weight: @submenu-fontweight;
@@ -678,7 +688,7 @@ nav{
 
 .main-menu{
 	padding-left: 80px;
-	-webkit-filter: blur(0.000001px);
+	//-webkit-filter: blur(0.000001px);
 	display: flex;
 	ul{
 		margin: 0 auto;
@@ -709,10 +719,9 @@ nav{
 	
 	img{
 		margin-left: 5px;
-		width: auto;
-		height: 60px;
+		width: 250px;
+		height: auto;
 		position: relative;
-		top: -12px;
 	}
 	
 	div{
@@ -879,26 +888,27 @@ hr{}
 		height: 30px;
 	}
 	li:hover{
-		outline: 2px solid #a00002;
+		outline: 2px solid #6c9;
 	}
 }
 
 .sizes{
 	.color;
 	li{
-		background-color: black;
-		color: white;
 		h4{
+			width: 30px;
+			background-color: white;
+			color: black;
+			outline: 1px solid #EBEBEB;
 			font-size: 14px;
 			font-weight: 600;
-			padding-top: 6px;
+			padding: 9px;
 			text-align: center;
 			margin: 0px;
 		}
-	}
-
-	li:hover{
-		outline: 2px solid #a00002;
+		&:hover{
+			outline: 2px solid black ! important;
+		}
 	}
 }
 
@@ -917,7 +927,9 @@ hr{}
 	}
 
 	h3:hover{
-		color: @hoverlink;
+		color: #6c9;
+		border-color: #6c9;
+		transition: color 500ms ease, color 500ms ease, border-color 500ms ease;
 	}
 }
 
@@ -1009,7 +1021,7 @@ hr{}
 	border: 1px solid rgb(200, 200, 200);
 	h5{
 		text-align: center;
-		font-family: 'north';
+		font-family: 'century';
 		padding: 20px;
 		margin: 0px;
 		background-color: rgb(248, 248, 248);
@@ -1143,6 +1155,33 @@ hr{}
 			letter-spacing: 1px;
 			font-weight: 600;
 		}
+	}
+}
+
+.animate{
+	transition: all .2s ease-in-out;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+}
+
+.fa-facebook, .fa-instagram, .fa-vk{
+	color: white;
+	font-size: 32px;
+}
+
+.lookbook-item{
+	margin: auto;
+	margin-bottom: 30px;
+	//border: 1px solid #777;
+	width: 270px;
+	height: 300px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+	&:hover{
+		transform: scale(1.02);
 	}
 }
 

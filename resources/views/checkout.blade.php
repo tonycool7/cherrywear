@@ -1,6 +1,6 @@
 @extends('cherrylayout.app')
 
-@section('title', 'CHECKOUT | CHERRYWEAR')
+@section('title', 'CHECKOUT | '.config('app.name'))
 
 @section('navigation')
 	@include('cherrylayout.navigator')
