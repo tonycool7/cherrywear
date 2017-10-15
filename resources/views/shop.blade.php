@@ -53,10 +53,13 @@
 			@if ($product != "")
 			@foreach ($product as $cat)
 			<li class="product-box">
-				<a href="/product/{{$cat->id}}"><div class="product-image" style="background-image: url('/images/products/{{$cat->image}}')">
-
-				</div></a>
-				<div class="view-product"><div class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#{{$cat->id}}" data-value="{{$cat->id}}"><span>View</span></div></div>
+				<a href="/product/{{$cat->id}}">
+					<div class="product-image" style="background-image: url('/images/products/{{$cat->image}}')">
+					</div>
+					<div class="item-shadow"><div></div></div>
+				</a>
+				<p data-toggle="modal" data-target="#{{$cat->id}}" data-value="{{$cat->id}}">КУПИТЬ СЕЙЧАС</p>
+				{{--<div class="view-product"><div class="glyphicon glyphicon-eye-open" ><span>View</span></div></div>--}}
 				<div class="product-name">
 					<h3>{{$cat->name}}</h3>
 				</div>
@@ -70,10 +73,13 @@
 			@if ($categorizedProducts != "")
 			@foreach ($categorizedProducts as $cat)
 			<li class="product-box">
-				<a href="/product/{{$cat->id}}"><div class="product-image" style="background-image: url('/images/products/{{$cat->image}}')">
-					
-				</div></a>
-				<div class="view-product"><div class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#{{$cat->id}}" data-value="{{$cat->id}}"><span>View</span></div></div>
+				<a href="/product/{{$cat->id}}">
+					<div class="product-image" style="background-image: url('/images/products/{{$cat->image}}')">
+					</div>
+					<div class="item-shadow"><div></div></div>
+				</a>
+				<p data-toggle="modal" data-target="#{{$cat->id}}" data-value="{{$cat->id}}">КУПИТЬ СЕЙЧАС</p>
+				{{--<div class="view-product"><div class="glyphicon glyphicon-eye-open" ><span>View</span></div></div>--}}
 				<div class="product-name">
 					<h3>{{$cat->name}}</h3>
 				</div>
@@ -87,10 +93,13 @@
 			@if ($subCategorizedProducts != "")
 			@foreach ($subCategorizedProducts as $cat)
 			<li class="product-box">
-				<a href="/product/{{$cat->id}}"><div class="product-image" style="background-image: url('/images/products/{{$cat->image}}')">
-					
-				</div></a>
-				<div class="view-product"><div class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#{{$cat->id}}" data-value="{{$cat->id}}"><span>View</span></div></div>
+				<a href="/product/{{$cat->id}}">
+					<div class="product-image" style="background-image: url('/images/products/{{$cat->image}}')">
+					</div>
+					<div class="item-shadow"><div></div></div>
+				</a>
+				<p data-toggle="modal" data-target="#{{$cat->id}}" data-value="{{$cat->id}}">КУПИТЬ СЕЙЧАС</p>
+				{{--<div class="view-product"><div class="glyphicon glyphicon-eye-open" ><span>View</span></div></div>--}}
 				<div class="product-name">
 					<h3>{{$cat->name}}</h3>
 				</div>
@@ -105,10 +114,13 @@
 			@if ($productbyColor != "")
 			@foreach ($productbyColor as $cat)
 			<li class="product-box">
-				<a href="/product/{{$cat->id}}"><div class="product-image" style="background-image: url('/images/products/{{$cat->image}}')">
-					
-				</div></a>
-				<div class="view-product"><div class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#{{$cat->id}}" data-value="{{$cat->id}}"><span>View</span></div></div>
+				<a href="/product/{{$cat->id}}">
+					<div class="product-image" style="background-image: url('/images/products/{{$cat->image}}')">
+					</div>
+					<div class="item-shadow"><div></div></div>
+				</a>
+				<p data-toggle="modal" data-target="#{{$cat->id}}" data-value="{{$cat->id}}">КУПИТЬ СЕЙЧАС</p>
+				{{--<div class="view-product"><div class="glyphicon glyphicon-eye-open" ><span>View</span></div></div>--}}
 				<div class="product-name">
 					<h3>{{$cat->name}}</h3>
 				</div>

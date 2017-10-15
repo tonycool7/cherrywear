@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         @foreach($lookbook as $item)
-            <div class="col-md-4">
+            <div class="col-md-4" style="padding: 3px;">
                 <div class="lookbook-item animate" style="background-image: url('images/lookbook/{{$item->image}}')">
                 </div>
             </div>

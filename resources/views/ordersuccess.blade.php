@@ -10,8 +10,8 @@
 	@include('cherrylayout.accountNavLayout')
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8">
-				<h4>Заказ принят, Вы получите ваш заказ в течение 100 лет по указанному адресу в вашем аккаунте.</h4>
+			<div class="col-md-8 col-md-offset-2">
+				<h4>Ваш заказ будет доставлен по указанному адресу в течение 5 рабочих дней. Вам перезвонят для подтверждения заказа.</h4>
 			</div>
 		</div>
 	</div>

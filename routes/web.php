@@ -67,19 +67,33 @@ Route::get('/orders','indexController@orders');
 
 Route::get('/complete', 'indexController@orderSuccess');
 
-Route::get('/log', function(){
-    if(!empty(Input::get('mail')) && !empty(Input::get('pword'))){
-        $password = Input::get('pword');
-        $email = Input::get('mail');
-        $user = customer::where("email", $email)->first();
+Route::post('/log', function(\Illuminate\Http\Request $request){
+    $user = customer::where('email', $request->mail)->first();
+    if(!is_null($user)){
+        $password = $request->pword;
+        $email = $request->mail;
         if (Illuminate\Support\Facades\Hash::check($password, $user->password))
         {
             session(['login' => 'true','user' => $user->name, 'email' => $user->email, 'phone' => $user->telephone, 'address' => $user->address]);
-            print "true";
-        }
+            return "true";
         }else{
-            print "false";
+            return "false";
         }
+    }
+
+    return "false";
+    //    if(!empty(Input::get('mail')) && !empty(Input::get('pword'))){
+//        $password = Input::get('pword');
+//        $email = Input::get('mail');
+//        $user = customer::where("email", $email)->first();
+//        if (Illuminate\Support\Facades\Hash::check($password, $user->password))
+//        {
+//            session(['login' => 'true','user' => $user->name, 'email' => $user->email, 'phone' => $user->telephone, 'address' => $user->address]);
+//            print "true";
+//        }
+//        }else{
+//            print "false";
+//        }
 });
 
 Route::get('/ordered', function(){
@@ -120,3 +134,17 @@ Route::get('/admin_reg', 'Auth\\RegisterController@register');
 Route::get('/admin_reg_view', function (){
     return view('reg');
 });
+
+Route::get('/delivery_return', function (){
+    $category = \App\category::all();
+    return view('delivery_return', compact('category'));
+});
+
+Route::get('/size_manual', function (){
+    $category = \App\category::all();
+    return view('size_manual', compact('category'));
+});
+
+Route::post('/newsletter', 'adminController@newsletter');
+
+Route::get('/send', 'indexController@orderSuccess');

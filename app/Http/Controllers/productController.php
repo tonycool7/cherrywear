@@ -22,7 +22,7 @@ class productController extends Controller
     }
 
     public function index($id){
-    	$this->data['product'] = product::where('id', $id)->get()->first();
+    	$this->data['product'] = product::where('id', $id)->first();
     	return view('product', $this->data);
     }
 }

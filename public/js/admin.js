@@ -28,6 +28,19 @@ $("#delete-p").click(function(){
 	$("#slides").hide("middle");
 	$("#delete").show("middle");
     $("#lookbook").hide("middle");
+    $("#subscribers").hide("middle");
+
+});
+
+$("#subscribe-p").click(function(){
+    $("#gallery").hide("middle");
+    $("#add").hide("middle");
+    $("#edit").hide("middle");
+    $("#color").hide("middle");
+    $("#slides").hide("middle");
+    $("#delete").hide("middle");
+    $("#lookbook").hide("middle");
+    $("#subscribers").show("middle");
 });
 
 
@@ -39,6 +52,8 @@ $("#lookbook-p").click(function(){
     $("#slides").hide("middle");
     $("#delete").hide("middle");
     $("#lookbook").show("middle");
+    $("#subscribers").hide("middle");
+
 });
 
 $("#add-p").click(function(){
@@ -49,6 +64,8 @@ $("#add-p").click(function(){
 	$("#slides").hide("middle");
 	$("#delete").hide("middle");
     $("#lookbook").hide("middle");
+    $("#subscribers").hide("middle");
+
 });
 
 $("#edit-p").click(function(){
@@ -59,6 +76,8 @@ $("#edit-p").click(function(){
 	$("#gallery").hide("middle");
 	$("#delete").hide("middle");
 	$("#slides").hide("middle");
+    $("#subscribers").hide("middle");
+
 });
 
 $("#edit-s").click(function(){
@@ -69,6 +88,8 @@ $("#edit-s").click(function(){
 	$("#gallery").hide("middle");
 	$("#delete").hide("middle");
 	$("#slides").show("middle");
+    $("#subscribers").hide("middle");
+
 });
 
 $("#color-p").click(function(){
@@ -79,6 +100,8 @@ $("#color-p").click(function(){
 	$("#delete").hide("middle");
 	$("#slides").hide("middle");
 	$("#gallery").hide("middle");
+    $("#subscribers").hide("middle");
+
 });
 
 $("#gallery-p").click(function(){
@@ -89,4 +112,6 @@ $("#gallery-p").click(function(){
 	$("#delete").hide("middle");
 	$("#slides").hide("middle");
 	$("#gallery").show("middle");
+    $("#subscribers").hide("middle");
+
 });

@@ -1,5 +1,5 @@
 @extends('cherrylayout.adminLayout')
-<link rel="icon" type="image/png" href="{{url('/')}}/images/logo.png">
+<link rel="icon" type="image/png" href="{{url('/')}}/images/logo2.png">
 @section('content')
 <div class="container">
     <div class="row">
@@ -14,6 +14,7 @@
                     <div title="edit slides" class="btn btn-slides" id="edit-s">EDIT SLIDES</div>
                     <div title="add to gallery" class="btn btn-success" id="lookbook-p">ADD TO LOOKBOOK</div>
                     <div title="delete products" class="btn btn-danger" id="delete-p">DELETE PRODUCTS</div>
+                    <div title="subscribers" class="btn btn-info" id="subscribe-p">MANAGE SUBSCRIBERS</div>
                 </div>
             </div>
         </div>
@@ -334,6 +335,44 @@
                                 @foreach($lookbook as $item)
                                     <tr><td>{{$item->name}}</td><td><div class="look-img" style="background-image: url('/images/lookbook/{{$item->image}}')"></div></td><td><a class="btn btn-danger" href="{{url('/')}}/deletelookbookitem/{{$item->id}}">Delete</a></td></tr>
                                 @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="subscribers">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h3>Manage subscribers</h3></div>
+                    <div class="panel-body">
+                        <form role="form" class="form-horizontal" method="post" action="/newsletter">
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <label>Message</label><br/>
+                                    <textarea name="message" style="width:80%;"></textarea>
+                                </div>
+                            </div>
+                            <input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />
+                            <input type="submit" class="btn btn-primary" value="Send"/>
+                        </form>
+
+                        <h2>Subscribers</h2>
+                        <table class="table table-hovered">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($subscribers as $item)
+                                <tr><td>{{$item->name}}</td><td>{{$item->email}}</td><td></td></tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

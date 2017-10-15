@@ -27,43 +27,68 @@
 									</div>
 									<input type="submit" value="ВОЙТИ" style="margin-left: -15px" class="btn btn-login">
 									<div style="margin-left: -15px; margin-top: 5px"><a style="color: black" href="#">Забыли пароль?</a></div>
-                   					<input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />
+                   					<input name="_token" type="hidden" id="token" value="{{ csrf_token() }}" />
 									
 								</form>
 							</div>
 							<div class="checkreg">
 								<h4 class="bold">УКАЖИТЕ ВАШИ ДАННЫЕ</h4>
-								<form role="form" class="form-horizontal" method="POST" action="/reg"> 
+								<form class="form-horizontal" role="form" method="POST" id="reg-form2">
 									<div class="form-group">
-										<label>Имя</label>
-										<input type="text" name="name2" class="form-control" placeholder="Name">
+										<label>Имя: </label>
+										<input type="text" name="name2" id="reg-name2" class="form-control" placeholder="Имя" required>
 									</div>
 									<div class="form-group">
-										<label>Эл. Почта</label>
-										<input type="email" name="email2" class="form-control" placeholder="E-mail">
+										<label>Фамилия: </label>
+										<input type="text" name="surname" id="reg-sur2" class="form-control" placeholder="Фамилия" required>
+									</div>
+									<div class="form-group">
+										<label>Адрес: </label>
+										<input type="text" name="address" id="reg-addr2" class="form-control" placeholder="Адрес" required>
+									</div>
+									<div class="form-group">
+										<label>Город: </label>
+										<input type="text" name="city" id="reg-city2" class="form-control" placeholder="Город" required>
+									</div>
+									<div class="form-group">
+										<label>Край / Область: </label>
+										<input type="text" name="region" id="reg-region2" class="form-control" placeholder="Край / Область" required>
+									</div>
+									<div class="form-group">
+										<label>Почтовый индекс: </label>
+										<input type="text" name="postalcode" id="reg-index2" class="form-control" placeholder="190000" required>
+									</div>
+									<div class="form-group">
+										<label>Страна: </label>
+										<input type="text" name="country" id="reg-country2" class="form-control" placeholder="Страна" required>
+									</div>
+									<div class="form-group">
+										<label>Эл. адрес</label>
+										<input type="email" name="email2" id="reg-email2" class="form-control" placeholder="Эл. адрес" required>
+
 									</div>
 									<div class="form-group">
 										<label>Телефон</label>
-										<input type="phone" name="tel" class="form-control" placeholder="+79522643862">
+										<input type="phone" name="tel" id="reg-tel2" class="form-control" placeholder="+79533456787" required>
 									</div>
 									<div class="form-group">
 										<label>Пароль</label>
-										<input type="password" name="password2" class="form-control" placeholder="**********">
+										<input type="password" name="password2" id="reg-pass12" class="form-control" placeholder="**********" required>
 									</div>
 									<div class="form-group">
-										<label>Повторить пароль</label>
-										<input type="password" name="password_confirmation" class="form-control" placeholder="**********">
+										<label>Подвердить пароль</label>
+										<input type="password" name="password_confirmation" id="reg-pass22" class="form-control" placeholder="**********" required>
 									</div>
 									<div class="agree" style="margin-left: -16px;">
 										<div>
-											<input type="checkbox" name="agree2" value="agree"> 
+											<input type="checkbox" name="agree2" id="news">
 										</div>
 										<div>
 											<p> Я хочу получать сообщения об эксклюсивных предположениях и новостях на свою почту и мне больше 16 лет.</p>
 										</div>
 									</div><br>
 									<input type="submit" value="Присоединяйтесь к нам" style="margin-left: -15px; width: 100%" class="btn btn-login">
-                    				<input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />		
+                    				{{--<input name="_token" type="hidden" id="_token" value="{{ csrf_token() }}" />--}}
 								</form>
 							</div>
 						</div>
@@ -95,9 +120,10 @@
 					@else
 					<h6>{{session('address')}}</h6>
 					@endif
-					<iframe frameborder="0" allowtransparency="true" scrolling="no" src="https://money.yandex.ru/quickpay/shop-widget?account=410014717837422&quickpay=shop&payment-type-choice=on&mobile-payment-type-choice=on&writer=seller&targets=%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7&default-sum=<?php if(isset($_SESSION['total'])) echo $_SESSION['total'] + 300;?>&button-text=02&successURL=google.com" width="450" height="198"></iframe>
+					<iframe src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9E%D0%BF%D0%BB%D0%B0%D1%82%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7&targets-hint=&default-sum=<?php if(isset($_SESSION['total'])) echo $_SESSION['total'] + 300;?>&button-text=12&payment-type-choice=on&hint=&successURL=http%3A%2F%2Fwrppd.co%2Fcomplete&quickpay=shop&account=410014717837422" width="450" height="199" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
+					{{--<iframe src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9E%D0%BF%D0%BB%D0%B0%D1%82%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7&targets-hint=&default-sum=&button-text=12&payment-type-choice=on&hint=&successURL=&quickpay=shop&account=410014717837422" width="450" height="199" frameborder="0" allowtransparency="true" scrolling="no"></iframe>--}}
 					<br>
-					<a class="btn btn-black" href="/ordered">доставка по оплате</a>
+					{{--<a class="btn btn-black" href="/ordered">доставка по оплате</a>--}}
 				</div>
 				@endif
 			</div>

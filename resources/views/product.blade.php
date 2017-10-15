@@ -53,7 +53,7 @@
 			  	</div>
 		</div>
 		<div class="col-md-6">
-			<span style="display: none" class="p-image">{{$product->image}}</span>
+			<span style="display: none" class="p-img">{{$product->image}}</span>
 			<span class="secret_id"></span>
 			<h2 class="p-name">{{$product->name}}</h2>
 			<h2 class="p-price">{{$product->new_price}} ₽</h2>
@@ -123,8 +123,8 @@
 			<div class="modal-body">
 				<table class="table size-guide">
 					<thead>
-					<tr><th colspan="7" style="background-color: rgba(100, 123, 8, 0.898);">КУРТКИ, РУБАШКИ, ПИДЖАКИ, ПАЛЬТО, ФУТБОЛКИ, ТОЛСТОВКИ, РУБАШКИ-ПОЛО...</th></tr>
-					<tr style="background-color: rgb(161, 191, 133)">
+					<tr><th colspan="7" style="background-color: rgba(121, 242, 212, 0.898);">КУРТКИ, РУБАШКИ, ПИДЖАКИ, ПАЛЬТО, ФУТБОЛКИ, ТОЛСТОВКИ, РУБАШКИ-ПОЛО...</th></tr>
+					<tr style="background-color: rgb(168, 169, 239)">
 						<th>РАЗМЕР</th>
 						<th>XS</th>
 						<th>S</th>
@@ -167,8 +167,8 @@
 				{{----}}
 				<table class="table size-guide">
 					<thead>
-					<tr><th colspan="8" style="background-color: rgba(100, 123, 8, 0.898)">БРЮКИ, ДЖИНСЫ, ШОРТЫ-БЕРМУДЫ...</th></tr>
-					<tr style="background-color: rgb(161, 191, 133)">
+					<tr><th colspan="8" style="background-color: rgba(121, 242, 212, 0.898);">БРЮКИ, ДЖИНСЫ, ШОРТЫ-БЕРМУДЫ...</th></tr>
+					<tr style="background-color: rgb(168, 169, 239)">
 						<th>РАЗМЕР</th>
 						<th>36</th>
 						<th>38</th>
@@ -205,8 +205,8 @@
 				{{----}}
 				<table class="table size-guide">
 					<thead>
-					<tr><th colspan="7" style="background-color: rgba(100, 123, 8, 0.898)">БРЮКИ, ШОРТЫ...</th></tr>
-					<tr style="background-color: rgb(161, 191, 133)">
+					<tr><th colspan="7" style="background-color: rgba(121, 242, 212, 0.898);">БРЮКИ, ШОРТЫ...</th></tr>
+					<tr style="background-color: rgb(168, 169, 239)">
 						<th>РАЗМЕР</th>
 						<th>XS</th>
 						<th>S</th>

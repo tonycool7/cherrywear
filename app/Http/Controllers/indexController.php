@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\customer;
+use App\Mail\orderAlert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 use App\Http\Requests;
 
@@ -54,7 +57,9 @@ class indexController extends Controller
     }
 
     public function orderSuccess(){
-    	mail("dkominion@yahoo.com", "successful order", "An order was placed on your website!");
+        $id = customer::where('email', session('email'))->first()->id;
+        $orders = orders::where('user_id', '=', $id)->get();
+        Mail::send(new orderAlert($orders));
         return view('ordersuccess', $this->data);
     }
 

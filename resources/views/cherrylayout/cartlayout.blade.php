@@ -15,7 +15,7 @@
 					for($i = 1; $i<$count; $i++ ){
 						// echo $_SESSION['cart'][$keys[$i]]['name'];
 						echo '<div class="cart-product">
-								<span class="delete" data-value="'.$keys[$i].'">удалить</span>
+								<span class="delete" data-value="'.$keys[$i].'" data-qty="'.$_SESSION['cart'][$keys[$i]]['quantity'].'">удалить</span>
 								<div class="row">
 								<div class="my-md-4">
 								<img src= "images/products/'.$_SESSION['cart'][$keys[$i]]['image'].'">
@@ -58,8 +58,8 @@
 					<h6>ИТОГО: <span class="pull-right"><span class="total-amt"><?php if(isset($_SESSION['total'])) echo $_SESSION['total'] + 300;?></span> ₽</span></h6>
 					<div><a href="/checkout" class="checkout bold">ОФОРМИТЬ ЗАКАЗ</a></div>
 					<div>
-						<p>Цены и стоимость доставки являются неподтвержденными до перехода к разделу оформления заказа.</p>
-						<p>14-дневный период возврата товара, комиссия за возврат и возврат стоимости за неотправленный товар. Прочитать о  Прочитать о возврате и возмещении стоимости товара.</p>
+						{{--<p>Цены и стоимость доставки являются неподтвержденными до перехода к разделу оформления заказа.</p>--}}
+						{{--<p>14-дневный период возврата товара, комиссия за возврат и возврат стоимости за неотправленный товар. Прочитать о  Прочитать о возврате и возмещении стоимости товара.</p>--}}
 					</div>
 				</div>
 			</div>

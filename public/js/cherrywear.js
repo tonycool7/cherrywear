@@ -146,7 +146,7 @@ $(".add-to-cart2").click(function(){
     var price = $(".p-price").text();
     var color = $(".color li.activeColor").data('value');
     var size = $(".sizes li.activeSize").data('value');
-    var image = $(".p-image").text();
+    var image = $(".p-img").text();
     var count = parseInt($(".count").text());
     if(isNaN(count)){
         count = 0;
@@ -179,6 +179,7 @@ $(".add-to-cart2").click(function(){
 
 $(".delete").click(function(){
     var id = $(this).data('value');
+    var qty = $(this).data('qty');
     var count = parseInt($(".count").text());
     $.ajax({
         type: 'get',
@@ -188,8 +189,7 @@ $(".delete").click(function(){
         function(){
              $('.deletedfromcart').hide().slideDown().delay(200).slideUp();
              if(count != 0){
-                var qty = $(".qty"+id).val();
-                count = count - qty;
+                 count = count - qty;
              }
              $(".count").text(count);
         }
@@ -289,11 +289,12 @@ $("#login-form").submit(function(e){
     e.preventDefault();
     var email = $(".l-email").val();
     var password = $(".l-password").val();
+    var token = $('#token_log').val();
 
     $.ajax({
-        type: 'get',
+        type: 'post',
         url: "/log",
-        data: "mail="+email+"&pword="+password,
+        data: {'mail': email, 'pword': password,'_method': 'post', '_token' : token},
         success: function(data){
             if(data == "true"){
                 window.location.reload();
@@ -304,15 +305,91 @@ $("#login-form").submit(function(e){
     });
 });
 
+$("#reg-form").submit(function(e){
+    e.preventDefault();
+    var name = $("#reg-name").val();
+    var surname = $("#reg-sur").val();
+    var address = $("#reg-addr").val();
+    var city = $("#reg-city").val();
+    var index = $("#reg-index").val();
+    var region = $("#reg-region").val();
+    var country = $("#reg-country").val();
+    var tel = $("#reg-tel").val();
+    var email = $("#reg-email").val();
+    var pass1 = $("#reg-pass1").val();
+    var pass2 = $("#reg-pass2").val();
+    var token = $('#token').val();
+    var news = "";
+    if($("#newsletter").is(':checked')){
+        news = true;
+    }else{
+        news =false;
+    }
+
+    $.ajax({
+        type: 'post',
+        url: "/reg",
+        data: {'name' : name, 'surname' : surname, 'address' : address, 'city': city, 'postal_code': index, 'region': region,
+        'country': country, '_token' : token, 'telephone' : tel, 'email': email, 'password1': pass1, 'password2': pass2, 'news': news, '_method' : 'post'},
+        success: function(data){
+            if(data == "true"){
+                $('.regsuccess').hide().slideDown().delay(200).slideUp();
+                window.location.reload();
+            }else{
+                $('.notregsiterd').hide().slideDown().delay(200).slideUp();
+            }
+        }
+    });
+});
+
+
+$("#reg-form2").submit(function(e){
+    e.preventDefault();
+    var name = $("#reg-name2").val();
+    var surname = $("#reg-sur2").val();
+    var address = $("#reg-addr2").val();
+    var city = $("#reg-city2").val();
+    var index = $("#reg-index2").val();
+    var region = $("#reg-region2").val();
+    var country = $("#reg-country2").val();
+    var tel = $("#reg-tel2").val();
+    var email = $("#reg-email2").val();
+    var pass1 = $("#reg-pass12").val();
+    var pass2 = $("#reg-pass22").val();
+    var token = $('#token').val();
+    var news = "";
+    if($("#news").is(':checked')){
+        news = true;
+    }else{
+        news =false;
+    }
+
+    $.ajax({
+        type: 'post',
+        url: "/reg",
+        data: {'name' : name, 'surname' : surname, 'address' : address, 'city': city, 'postal_code': index, 'region': region,
+            'country': country, '_token' : token, 'telephone' : tel, 'email': email, 'password1': pass1, 'password2': pass2, 'news': news, '_method' : 'post'},
+        success: function(data){
+            if(data == "true"){
+                $('.regsuccess').hide().slideDown().delay(200).slideUp();
+                window.location.reload();
+            }else{
+                $('.notregsiterd').hide().slideDown().delay(200).slideUp();
+            }
+        }
+    });
+});
+
 $("#login-form2").submit(function(e){
     e.preventDefault();
     var email = $(".l2-email").val();
     var password = $(".l2-password").val();
+    var token = $('#token').val();
 
     $.ajax({
-        type: 'get',
+        type: 'post',
         url: "/log",
-        data: "mail="+email+"&pword="+password,
+        data: {'mail': email, 'pword': password,'_method': 'post', '_token' : token},
         success: function(data){
             if(data == "true"){
                 window.location.reload();
@@ -327,11 +404,13 @@ $("#login-form3").submit(function(e){
     e.preventDefault();
     var email = $(".l3-email").val();
     var password = $(".l3-password").val();
+    var token = $('#token').val();
 
     $.ajax({
-        type: 'get',
+        type: 'post',
         url: "/log",
-        data: "mail="+email+"&pword="+password,
+        data: {'mail': email, 'pword': password,'_method': 'post', '_token' : token},
+
         success: function(data){
             if(data == "true"){
                 window.location.reload();

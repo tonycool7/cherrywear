@@ -6,8 +6,8 @@
 				<h3>ВАМ НУЖНА ПОМОЩЬ?</h3>
 				<ul>
 					<li><a href="#">УХОД ЗА ОДЕЖДОЙ</a></li>
-					<li><a href="#">РУКОВОДСТВО ПО РАЗМЕРАМ</a></li>
-					<li><a href="#">ДОСТАВКА И ВОЗРАТ</a></li>
+					<li><a href="/size_manual">РУКОВОДСТВО ПО РАЗМЕРАМ</a></li>
+					<li><a href="/delivery_return">ДОСТАВКА И ВОЗРАТ</a></li>
 					{{--<li><a href="#">MATERIALS</a></li>--}}
 				</ul>
 			</div>

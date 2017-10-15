@@ -460,12 +460,71 @@ nav{
 	margin-bottom: 30px;
 	float: left;
 	width: 270px;
+	position: relative;
 	min-height: 325px;
-	a{
+	p{
+		color: white;
+		padding: 10px 20px;
+		font-weight: 600;
+		border: 2px solid white;
+		cursor: pointer;
+		opacity: 0;
+		text-align: center;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -35px;
+		margin-left: -100px;
+		width: 200px;
+		height: 46px;
+		transition: all .35s ease-in;
+	}
+	.item-shadow {
+		transform: scale(0.0);
+		height: 300px;
+		width: 270px;
+		top:0;
+		transition: all .3s ease-in-out;
+		position: absolute;
+		background-color: rgba(0, 0, 0, .3);
+		div {
+			text-align: center;
+			margin: auto;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			display: flex;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			align-items: center;
+			-webkit-align-items: center;
+			-moz-align-items: center;
+			-ms-align-items: center;
+			-webkit-justify-content: center;
+			-moz-justify-content: center;
+			-ms-justify-content: center;
+			justify-content: center;
+		}
+	}
+	div{
 		text-decoration: none;
 		padding: 0px !important;
 		margin: 0px;
 	}
+}
+
+.product-box:hover{
+	transform: scale(1.02);
+	.item-shadow{
+		transform: scale(1.0);
+	}
+	p{
+		opacity: 1;
+	}
+
 }
 
 .product-box:hover .view-product{
@@ -984,7 +1043,7 @@ hr{}
 	display: none;
 }
 
-.addedtocart, .deletedfromcart, .loggedin, .notloggedin{
+.addedtocart, .deletedfromcart, .loggedin, .notloggedin, .regsuccess, .notregsiterd{
 	display: none;
 	z-index: 5000;
 	width: 250px;
@@ -1172,9 +1231,9 @@ hr{}
 
 .lookbook-item{
 	margin: auto;
-	margin-bottom: 30px;
+	margin-bottom: 3px;
 	//border: 1px solid #777;
-	width: 270px;
+	width: 100%;
 	height: 300px;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -1246,7 +1305,7 @@ hr{}
 }
 
 @media screen and (max-width: 850px){
-	.refresh{display: none;}
+	.refresh{display: block;}
 	.sub-menu-1{display: none;}
 }
 

@@ -1,6 +1,6 @@
 @extends('cherrylayout.app')
 
-@section('title', 'ERROR | CHERRYWEAR')
+@section('title', 'ERROR | '.config('app.name'))
 
 @section('navigation')
 	@include('cherrylayout.navigator_error')

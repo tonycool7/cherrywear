@@ -10,6 +10,8 @@ use App\category as category;
 
 use App\product;
 
+use App\subscription;
+
 use App\colors;
 
 use App\slides;
@@ -42,7 +44,8 @@ class adminController extends Controller
             "lookbookerror" => "",
             "lookbookdelete" => "",
             "lookbook" => lookbook::all(),
-            "item" => ""
+            "item" => "",
+            "subscribers" => subscription::all()
     	);
 	}
 
@@ -210,6 +213,18 @@ class adminController extends Controller
         $item->quantity = $request->qty;
         $item->save();
         $this->data['deleteSuccess'] = "Product editted successfully";
-        return redirect("admin");
+        return view("admin", $this->data);
+    }
+
+    public function newsletter(Request $request){
+        $emails = subscription::all('email');
+        $emails_str = "";
+        foreach ($emails as $mail){
+            $emails_str .= $mail->email.",";
+        }
+
+        mail($emails_str, "WRAPPED NEWSLETTER", $request->message);
+        $this->data['deleteSuccess'] = "Newsletter sent to all subscribers";
+        return view("admin", $this->data);
     }
 }
